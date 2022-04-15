@@ -22,8 +22,8 @@ console.log('connected to database!')
 app.use(express.json())
 
 app.use('/', uploadRoutes)
-app.get('/',(req,res)=>{
-    res.sendFile(__dirname+'/Public/aish.html')
+app.get('/upload/',(req,res)=>{
+    res.sendFile(__dirname+'/Public/index.html')
 })
 
 app.listen(8080, ()=>{
