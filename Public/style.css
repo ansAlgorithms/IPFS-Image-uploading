@@ -1,0 +1,17 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+}
+.image{
+    width: 375px;
+    height: 311px;
+    border: 1px solid black;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
