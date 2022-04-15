@@ -8,13 +8,11 @@ module.exports = {
 
     // creating ipfs server
     const ipfsClient = async () => {
-      console.log("doing");
       const ipfsCreate = await ipfs.create({
         host: "ipfs.infura.io",
         port: 5001,
         protocol: "https",
-      });
-      console.log("doing");
+      })
       return ipfsCreate;
     };
 
@@ -24,15 +22,13 @@ module.exports = {
         let data 
         var file=req.files.file
         var fileName=file.name
-        console.log(fileName);
-        var filePath='./uploads'+fileName
-
+        console.log('File name : ' + fileName);
+        var filePath = './uploads/' + fileName
         function move(){
           // move files to local storage
-          file.mv(filePath, async() => {
-            console.log('file uploaded') // file uploaded to local storage
+          file.mv(filePath, async() => {  // file uploaded to local storage
 
-            // Now The file at local storage is uploading at ipfs server
+            // Now The file at local storage is uploading into ipfs server
               data = fs.readFileSync(filePath)
               let options = {
                 warpWithDirectory: false,
@@ -60,6 +56,5 @@ module.exports = {
       }
     }
     await saveFile()
-    console.log('Done.')
   }
 };
