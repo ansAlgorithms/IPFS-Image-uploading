@@ -32,9 +32,10 @@ module.exports = {
               data = fs.readFileSync(filePath)
               let options = {
                 warpWithDirectory: false,
-                progress: (prog) => console.log(`Saved :${prog}`),
+                progress: (prog) => console.log(`Uploaded : ${Math.floor(prog/1000)} kB`),
               }
               let result = await ipfs.add(data, options);
+              result.size = Math.floor(result.size/1000) + ' kB'
               console.log(result);
               // file hash is saving into datatbase
               image = new imageModel({
